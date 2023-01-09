@@ -1,15 +1,13 @@
-name: Our First Workflow
+name: Our CI
 on: push
 jobs:
-  echo:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Hello, GitHub Actions!'
-  pwd-ls:
-    name: PWD & LS
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print working directory
-        run: pwd
-      - name: List files
-        run: ls -al
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.14.2
+          cache: npm
+      - run: npm i
+      - run: npm run build
