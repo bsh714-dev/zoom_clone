@@ -5,7 +5,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "nodemon",
-    "build": "babel-node src/server.js"
+    "start": "babel-node src/server.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
